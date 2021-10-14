@@ -8,14 +8,14 @@ public class Game extends PlayingField {
     void startGame() {
         pushShips();
         System.out.println("\nThe game starts!\n");
-        printField();
+        printField(filed2);
         System.out.println("\nTake a shot!\n");
         Hit.hit(scanner.next());
     }
 
     // постановка кораблей на поле
     void pushShips() {
-        printField();
+        printField(filed1);
         for (Ships s : Ships.values()) {
             boolean pushShip = false;
             List<String> list = new ArrayList<>();
@@ -31,7 +31,7 @@ public class Game extends PlayingField {
                 }
             }
             new Ship(s, list.get(0), list.get(1));
-            printField();
+            printField(filed1);
         }
     }
 }

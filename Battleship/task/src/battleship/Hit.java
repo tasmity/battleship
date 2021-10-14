@@ -1,5 +1,8 @@
 package battleship;
 
+import static battleship.PlayingField.filed1;
+import static battleship.PlayingField.filed2;
+
 public class Hit {
     private Hit() {
     }
@@ -18,14 +21,17 @@ public class Hit {
 
     // заполнение ячейки удара
     static void pushHit(int y, int x) {
-        if (PlayingField.filed[y][x].equals("O")) {
-            PlayingField.filed[y][x] = "X";
-            PlayingField.printField();
-            System.out.println("\nYou hit a ship!");
+        if (filed1[y][x].equals("O")) {
+            filed1[y][x] = "X";
+            filed2[y][x] = "X";
+            PlayingField.printField(filed2);
+            System.out.println("\nYou hit a ship!\n");
         } else {
-            PlayingField.filed[y][x] = "M";
-            PlayingField.printField();
-            System.out.println("\nYou missed!");
+            filed1[y][x] = "M";
+            filed2[y][x] = "M";
+            PlayingField.printField(filed2);
+            System.out.println("\nYou missed!\n");
         }
+        PlayingField.printField(filed1);
     }
 }

@@ -45,11 +45,11 @@ public class Ship {
     void pushShip(int y1, int x1, int y2, int x2) {
         if (horizontal) {
             for (var i = x1; i <= x2; i++) {
-                PlayingField.filed[y1][i] = "O";
+                PlayingField.filed1[y1][i] = "O";
             }
         } else {
             for (var i = y1; i <= y2; i++) {
-                PlayingField.filed[i][x1] = "O";
+                PlayingField.filed1[i][x1] = "O";
             }
         }
     }

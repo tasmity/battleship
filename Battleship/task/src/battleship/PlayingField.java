@@ -3,14 +3,16 @@ package battleship;
 import java.util.Arrays;
 
 public class PlayingField {
-    static String[][] filed = new String[11][11];
+    static String[][] filed1 = new String[11][11];
+    static String[][] filed2 = new String[11][11];
 
     PlayingField() {
-        initialize();
+        initialize(filed1);
+        initialize(filed2);
     }
 
     // Иниациализация игрового поля
-    static void initialize() {
+    static void initialize(String[][] filed) {
         for (String[] cell : filed) {
             Arrays.fill(cell, "~");
         }
@@ -25,7 +27,7 @@ public class PlayingField {
     }
 
     // Вываод игрового поля на экран
-    static void printField() {
+    static void printField(String[][] filed) {
         for (String[] y : filed) {
             Arrays.stream(y).forEach(i -> System.out.print(i + " "));
             System.out.println();

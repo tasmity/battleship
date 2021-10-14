@@ -46,7 +46,7 @@ public class Check extends Game {
 
         for (var i = y1; i <= y2; i++) {
             for (var j = x1; j <= x2; j++) {
-                if (!filed[i][j].equals("~")) {
+                if (!filed1[i][j].equals("~")) {
                     System.out.println("\nError! You placed it too close to another one. Try again:\n");
                     return false;
                 }
