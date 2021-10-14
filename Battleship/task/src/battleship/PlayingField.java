@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class PlayingField {
     static String[][] filed = new String[11][11];
 
-    public PlayingField() {
+    PlayingField() {
         initialize();
     }
 
@@ -25,7 +25,7 @@ public class PlayingField {
     }
 
     // Вываод игрового поля на экран
-    public void printField() {
+    static void printField() {
         for (String[] y : filed) {
             Arrays.stream(y).forEach(i -> System.out.print(i + " "));
             System.out.println();

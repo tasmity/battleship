@@ -6,6 +6,15 @@ public class Game extends PlayingField {
     static Scanner scanner = new Scanner(System.in);
 
     void startGame() {
+        pushShips();
+        System.out.println("\nThe game starts!\n");
+        printField();
+        System.out.println("\nTake a shot!\n");
+        Hit.hit(scanner.next());
+    }
+
+    // постановка кораблей на поле
+    void pushShips() {
         printField();
         for (Ships s : Ships.values()) {
             boolean pushShip = false;
