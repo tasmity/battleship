@@ -10,8 +10,15 @@ public class Check extends Game {
         int x1 = Ship.parseX(s1);
         int y2 = Ship.parseY(s2);
         int x2 = Ship.parseX(s2);
-        return checkCell(y1, x1, y2, x2) && checkTypeLength(ship, checkLength(y1, x1, y2, x2)) &&
-                checkPush(y1, x1, y2, x2);
+        if (checkCell(y1, x1, y2, x2) && checkTypeLength(ship, checkLength(y1, x1, y2, x2))) {
+            if (!checkPush(y1, x1, y2, x2)) {
+                System.out.println("\nError! You placed it too close to another one. Try again:\n");
+                return false;
+            } else {
+                return true;
+            }
+        }
+        return false;
     }
 
     // проверка является ли корабль нужной формы
@@ -42,12 +49,11 @@ public class Check extends Game {
         y1 = y1 == 1 ? y1 : y1 - 1;
         x1 = x1 == 1 ? x1 : x1 - 1;
         y2 = y2 == 10 ? y2 : y2 + 1;
-        x2 = x2 == 10 ? x2 : x2 - 1;
+        x2 = x2 == 10 ? x2 : x2 + 1;
 
         for (var i = y1; i <= y2; i++) {
             for (var j = x1; j <= x2; j++) {
-                if (!filed1[i][j].equals("~")) {
-                    System.out.println("\nError! You placed it too close to another one. Try again:\n");
+                if (filed1[i][j].equals("O")) {
                     return false;
                 }
             }

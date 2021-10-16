@@ -10,7 +10,10 @@ public class Game extends PlayingField {
         System.out.println("\nThe game starts!\n");
         printField(filed2);
         System.out.println("\nTake a shot!\n");
-        Hit.hit(scanner.next());
+        while(!Check.checkPush(1, 1, 10, 10)) {
+            Hit.hit(scanner.next());
+        }
+        System.out.println("\nYou sank the last ship. You won. Congratulations!\n");
     }
 
     // постановка кораблей на поле

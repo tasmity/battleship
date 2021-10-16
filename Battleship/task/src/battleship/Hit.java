@@ -21,17 +21,22 @@ public class Hit {
 
     // заполнение ячейки удара
     static void pushHit(int y, int x) {
-        if (filed1[y][x].equals("O")) {
+        if (filed1[y][x].equals("O") || filed1[y][x].equals("X")) {
             filed1[y][x] = "X";
             filed2[y][x] = "X";
             PlayingField.printField(filed2);
-            System.out.println("\nYou hit a ship!\n");
+            if (!Check.checkPush(1, 1, 10, 10)) {
+                if (!Check.checkPush(y, x, y, x)) {
+                    System.out.println("\nYou hit a ship! Try again:\n");
+                } else {
+                    System.out.println("\nYou sank a ship! Specify a new target:\n");
+                }
+            }
         } else {
             filed1[y][x] = "M";
             filed2[y][x] = "M";
             PlayingField.printField(filed2);
-            System.out.println("\nYou missed!\n");
+            System.out.println("\nYou missed! Try again:\n");
         }
-        PlayingField.printField(filed1);
     }
 }
